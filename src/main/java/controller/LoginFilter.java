@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 
 
-@WebFilter({"/list","/add","/update",})
+@WebFilter({"/list","/add","/update","/delete"})
 public class LoginFilter implements Filter{
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

@@ -48,6 +48,7 @@ public class AddPatient extends HttpServlet {
     	String country = request.getParameter("countryPatient");
     	Patient newPatient = new Patient(name, email, country);
     	servicePatient.addPatient(newPatient);
+    	System.out.println("New patient added");
     	response.sendRedirect("list");
 	}
 
