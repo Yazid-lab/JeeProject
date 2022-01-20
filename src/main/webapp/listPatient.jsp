@@ -10,7 +10,7 @@
 <body>
 
             <header>
-                <nav class="navbar navbar-expand-md navbar-dark" style="background-color: black">
+                <nav class="navbar navbar-expand-md navbar-dark" style="background-color: red">
                     <div>
                         <a  class="navbar-brand"> Management</a>
                     </div>
