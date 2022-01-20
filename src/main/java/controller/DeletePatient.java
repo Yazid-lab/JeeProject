@@ -14,7 +14,7 @@ import service.ILocalPatient;
 /**
  * Servlet implementation class DeletePatient
  */
-@WebServlet("/DeletePatient")
+@WebServlet("/delete")
 public class DeletePatient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB ILocalPatient servicePatient;

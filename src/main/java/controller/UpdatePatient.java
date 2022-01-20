@@ -16,7 +16,7 @@ import service.ILocalPatient;
 /**
  * Servlet implementation class EditPatient
  */
-@WebServlet("/UpdatePatient")
+@WebServlet("/update")
 public class UpdatePatient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     @EJB ILocalPatient servicePatient;   
