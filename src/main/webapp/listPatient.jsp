@@ -38,7 +38,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Country</th>
+                                <th>Address</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

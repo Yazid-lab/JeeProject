@@ -38,7 +38,7 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label>Patient Country</label> <input type="text" value="<c:out value='${Patient.countryPatient}' />" class="form-control" name="countryPatient">
+                            <label>Patient Address</label> <input type="text" value="<c:out value='${Patient.countryPatient}' />" class="form-control" name="countryPatient">
                         </fieldset>
 
                         <button type="submit" class="btn btn-success">Save</button>
