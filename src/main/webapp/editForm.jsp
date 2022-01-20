@@ -44,7 +44,7 @@
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>Patient Town</label> <input type="text"
+						<label>Patient Address</label> <input type="text"
 							value="<c:out value='${Patient.countryPatient}' />"
 							class="form-control" name="countryPatient">
 					</fieldset>
