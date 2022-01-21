@@ -11,7 +11,7 @@ import entities.Patient;
 public interface ILocalPatient {
 	public void addPatient(Patient patient);
 	public List<Patient> listPatients();
-	public Patient selectPatient(int id);
+	public Patient selectPatientById(int id);
 	public boolean updatePatient(Patient patient);
 	public boolean deletePatient(int id);
 

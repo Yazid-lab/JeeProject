@@ -13,7 +13,7 @@ import entities.Patient;
 @Stateless
 public class ILocalPatientImpl implements ILocalPatient {
 
-	@PersistenceContext(unitName="UP_PATIENT")
+	@PersistenceContext(unitName="UP_gestioncabinet")
 	EntityManager em;
 	@Override
 	public void addPatient(Patient patient) {
@@ -28,7 +28,7 @@ public class ILocalPatientImpl implements ILocalPatient {
 	}
 
 	@Override
-	public Patient selectPatient(int id) {
+	public Patient selectPatientById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
