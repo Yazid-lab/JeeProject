@@ -26,14 +26,14 @@ public class AddPatient extends HttpServlet {
      */
     public AddPatient() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("formPatient.jsp");
     	dispatcher.forward(request, response);
 	}
@@ -42,7 +42,7 @@ public class AddPatient extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String name = request.getParameter("namePatient");
     	String email = request.getParameter("emailPatient");
     	String country = request.getParameter("countryPatient");
