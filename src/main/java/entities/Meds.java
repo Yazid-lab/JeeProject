@@ -21,11 +21,23 @@ public class Meds implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public Meds(int idMed, String nameMed) {
+		super();
+		this.idMed = idMed;
+		this.nameMed = nameMed;
+	}
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int idMed;
 	private String nameMed;
 	
 	
+	public Meds(String nameMed) {
+		super();
+		this.nameMed = nameMed;
+	}
+	public Meds() {
+		super();
+	}
 	@ManyToMany(mappedBy = "medsTaken")
 	private Set<Patient> patients;
 	

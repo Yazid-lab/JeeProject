@@ -33,7 +33,7 @@ public class ILocalMedsImpl implements ILocalMeds {
 
 	@Override
 	public boolean updateMeds(Meds med) {
-		Query query=em.createQuery("UPDATE Meds m SET m.nameMed = :=newname "
+		Query query=em.createQuery("UPDATE Meds m SET m.nameMed = :newname "
 	              + "WHERE m.idMed = :enteredid");
 		query.setParameter("newname",med.getNameMed());
 		query.setParameter("enteredid",med.getIdMed());	
