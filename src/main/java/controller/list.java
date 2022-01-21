@@ -17,7 +17,7 @@ import service.ILocalPatient;
 /**
  * Servlet implementation class list
  */
-@WebServlet("/list")
+@WebServlet("/listPatients")
 public class list extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ServletContext context;

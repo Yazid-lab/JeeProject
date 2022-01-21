@@ -35,7 +35,7 @@ public class DeletePatient extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("idPatient"));
 		servicePatient.deletePatient(id);
 		System.out.println("patient "+id+" deleted");
-		response.sendRedirect("list");
+		response.sendRedirect("listPatients");
 	}
 
 	/**

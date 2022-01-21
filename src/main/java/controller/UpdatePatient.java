@@ -48,7 +48,7 @@ public class UpdatePatient extends HttpServlet {
     	String country = request.getParameter("countryPatient");
     	Patient newPatient = new Patient(id,name, email, country);
     	servicePatient.updatePatient(newPatient);
-    	response.sendRedirect("list");
+    	response.sendRedirect("listPatients");
 	}
 
 }

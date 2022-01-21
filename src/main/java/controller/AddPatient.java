@@ -49,7 +49,7 @@ public class AddPatient extends HttpServlet {
     	Patient newPatient = new Patient(name, email, country);
     	servicePatient.addPatient(newPatient);
     	System.out.println("New patient added");
-    	response.sendRedirect("list");
+    	response.sendRedirect("listPatients");
 	}
 
 }
