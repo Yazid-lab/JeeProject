@@ -19,6 +19,7 @@
 
 			<ul class="navbar-nav">
 				<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Patients</a></li>
+				<li class="nav-link">Meds</li>
 			</ul>
 		</nav>
 	</header>
@@ -32,9 +33,8 @@
 					 <input type="text" name="idPatient" value="${param.idPatient}" readonly/>
 					 </fieldset>
 					<fieldset class="form-group">
-						<label>Patient Name</label> <input type="text"
-							value="<c:out value='${Patient.namePatient}' />"
-							class="form-control" name="namePatient" required="required">
+						<label>Patient Name</label> 
+						<input type="text"	class="form-control"  name="namePatient" >
 					</fieldset>
 
 					<fieldset class="form-group">

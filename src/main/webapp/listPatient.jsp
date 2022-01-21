@@ -17,6 +17,7 @@
 
                     <ul class="navbar-nav">
                         <li><a href="<%=request.getContextPath()%>/list" class="nav-link">Patients</a></li>
+                        <li class="nav-link">Meds</li>
                     </ul>
                 </nav>
             </header>
