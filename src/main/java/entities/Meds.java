@@ -2,8 +2,9 @@ package entities;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +22,12 @@ public class Meds implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public Meds(int idMed, String nameMed, List<Patient> patients) {
+		super();
+		this.idMed = idMed;
+		this.nameMed = nameMed;
+		this.patients = patients;
+	}
 	public Meds(int idMed, String nameMed) {
 		super();
 		this.idMed = idMed;
@@ -39,7 +46,7 @@ public class Meds implements Serializable {
 		super();
 	}
 	@ManyToMany(mappedBy = "medsTaken")
-	private Set<Patient> patients;
+	private List<Patient> patients= new ArrayList<>();
 	
 	public int getIdMed() {
 		return idMed;
@@ -54,10 +61,11 @@ public class Meds implements Serializable {
 		this.nameMed = nameMed;
 	}
 	
-	public Set<Patient> getPatients() {
+	
+	public List<Patient> getPatients() {
 		return patients;
 	}
-	public void setPatients(Set<Patient> patients) {
+	public void setPatients(List<Patient> patients) {
 		this.patients = patients;
 	}
 	@Override

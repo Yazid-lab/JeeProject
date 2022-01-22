@@ -1,17 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>404 Error - Page Not Found</title>
+<title>Page Not Found</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <center>
-        <h1>Sorry, the page you requested was not found.</h1><br>
-        <h2>Go back to <a href="<%=request.getContextPath()%>/listPatients">home</a> page.</h2>
-        
-    </center>
+   
+<div class="d-flex justify-content-center align-items-center ">
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="error-template">
+                <h1>
+                    Oops!</h1>
+                <h2>
+                    404 Not Found</h2>
+                <div class="error-details">
+                    Sorry, an error has occured, Requested page not found!
+                </div>
+                <div class="error-actions">
+                    <a href="<%=request.getContextPath()%>/listPatients" class="btn btn-primary btn-lg">Go back Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

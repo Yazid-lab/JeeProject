@@ -1,16 +1,20 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Meds;
 import entities.Patient;
+import service.ILocalMeds;
 import service.ILocalPatient;
 
 /**
@@ -20,6 +24,8 @@ import service.ILocalPatient;
 public class AddPatient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB private ILocalPatient servicePatient;
+	@EJB private ILocalMeds serviceMed;
+	ServletContext context;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,7 +39,9 @@ public class AddPatient extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		context= request.getSession().getServletContext();
+		List<Meds> listMeds=serviceMed.listMeds();
+		context.setAttribute("listMeds", listMeds);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("formPatient.jsp");
     	dispatcher.forward(request, response);
 	}
@@ -42,11 +50,18 @@ public class AddPatient extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String resp =request.getParameter("MedTaken");
+		String[] parts=resp.split("-");
+		System.out.println(parts[0]);
+		System.out.println(parts[1]);
 		String name = request.getParameter("namePatient");
     	String email = request.getParameter("emailPatient");
     	String country = request.getParameter("countryPatient");
     	Patient newPatient = new Patient(name, email, country);
+    	Meds newmed=new Meds();
+    	newmed.setIdMed(Integer.parseInt(parts[0]));
+    	newmed.setNameMed(parts[1]);
+    	newPatient.addMed(newmed);
     	servicePatient.addPatient(newPatient);
     	System.out.println("New patient added");
     	response.sendRedirect("listPatients");

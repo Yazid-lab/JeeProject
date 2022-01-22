@@ -60,6 +60,7 @@
                                         <c:out value="${Patient.countryPatient}" />
                                     </td>
                                     <td><a href="update?idPatient=<c:out value='${Patient.idPatient}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?idPatient=<c:out value='${Patient.idPatient}' />">Delete</a></td>
+                                
                                 </tr>
                             </c:forEach>
                         </tbody>

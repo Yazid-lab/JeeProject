@@ -1,7 +1,8 @@
 package entities;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Patient implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@ManyToMany
 	@JoinTable(name = "patient_meds",joinColumns = @JoinColumn(name="patient_id"),inverseJoinColumns = @JoinColumn(name="meds_id"))
-	private Set<Meds> medsTaken;
+	private List<Meds> medsTaken= new ArrayList<>();
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,11 +39,31 @@ public class Patient implements Serializable{
 		super();
 	}
 
+	
+
+	public Patient(List<Meds> medsTaken, int idPatient, String namePatient, String emailPatient,
+			String countryPatient) {
+		super();
+		this.medsTaken = medsTaken;
+		this.idPatient = idPatient;
+		this.namePatient = namePatient;
+		this.emailPatient = emailPatient;
+		this.countryPatient = countryPatient;
+	}
+
+
+
 	public Patient(String namePatient, String emailPatient, String countryPatient) {
 		super();
 		this.namePatient = namePatient;
 		this.emailPatient = emailPatient;
 		this.countryPatient = countryPatient;
+	}
+
+	@Override
+	public String toString() {
+		return "Patient [medsTaken=" + medsTaken + ", idPatient=" + idPatient + ", namePatient=" + namePatient
+				+ ", emailPatient=" + emailPatient + ", countryPatient=" + countryPatient + "]";
 	}
 
 	public Patient(int idPatient, String namePatient, String emailPatient, String countryPatient) {
@@ -51,6 +72,28 @@ public class Patient implements Serializable{
 		this.namePatient = namePatient;
 		this.emailPatient = emailPatient;
 		this.countryPatient = countryPatient;
+	}
+	
+	public List<Meds> getMedsTaken() {
+		return medsTaken;
+	}
+
+
+
+	public void setMedsTaken(List<Meds> medsTaken) {
+		this.medsTaken = medsTaken;
+	}
+
+
+
+	public void addMed(Meds med) {
+		medsTaken.add(med);
+		med.getPatients().add(this);
+	
+	}
+	public void removeMed(Meds med) {
+		medsTaken.remove(med);
+		med.getPatients().remove(this);
 	}
 
 
@@ -82,7 +125,7 @@ public class Patient implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(countryPatient, emailPatient, idPatient, namePatient);
+		return Objects.hash(countryPatient, emailPatient, idPatient, medsTaken, namePatient);
 	}
 
 	@Override
@@ -95,7 +138,8 @@ public class Patient implements Serializable{
 			return false;
 		Patient other = (Patient) obj;
 		return Objects.equals(countryPatient, other.countryPatient) && Objects.equals(emailPatient, other.emailPatient)
-				&& idPatient == other.idPatient && Objects.equals(namePatient, other.namePatient);
+				&& idPatient == other.idPatient && Objects.equals(medsTaken, other.medsTaken)
+				&& Objects.equals(namePatient, other.namePatient);
 	}
 
 
