@@ -11,22 +11,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.Patient;
-import service.ILocalPatient;
+import entities.Meds;
+import service.ILocalMeds;
 
 /**
- * Servlet implementation class list
+ * Servlet implementation class ListMeds
  */
-@WebServlet("/listPatients")
-public class list extends HttpServlet {
+@WebServlet("/ListMeds")
+public class ListMeds extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ServletContext context;
-	@EJB private ILocalPatient servicePatient;
+	@EJB private ILocalMeds serviceMeds;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public list() {
+    public ListMeds() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,18 +35,16 @@ public class list extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		context= request.getSession().getServletContext();
-		List<Patient> listPatients = servicePatient.listPatients();
-		context.setAttribute("listPatients", listPatients);
-		request.getRequestDispatcher("/listPatient.jsp").forward(request, response);
+		List<Meds> listMeds= serviceMeds.listMeds();
+		context.setAttribute("listMeds", listMeds);
+		request.getRequestDispatcher("/listMeds.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

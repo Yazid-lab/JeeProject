@@ -49,8 +49,7 @@ public class LoginServlet extends HttpServlet {
 		{
 			System.out.println("auth success");
 			request.getSession().setAttribute("isconnected", "true");
-			System.out.println(request.getSession().getAttribute("isconnected"));
-			response.sendRedirect("list");
+			response.sendRedirect("listPatients");
 
 		}else {
 			

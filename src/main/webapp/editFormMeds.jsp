@@ -19,35 +19,24 @@
 
 			<ul class="navbar-nav">
 				<li><a href="<%=request.getContextPath()%>/listPatients" class="nav-link">Patients</a></li>
-				<li class="nav-link">Meds</li>
+				<li><a href="<%=request.getContextPath()%>/ListMeds" class="nav-link">Meds</a></li>
 			</ul>
 		</nav>
 	</header>
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<form action="update" method="post">
-					<h2>Edit Patient</h2>
+				<form action="updateMed" method="post">
+					<h2>Edit Med</h2>
 					<fieldset class="form-group">
-					<label>Patient Id</label>
-					 <input type="text" name="idPatient" value="${param.idPatient}" readonly/>
+					<label>Med Id</label>
+					 <input type="text" name="idMed" value="${param.idMed}" readonly/>
 					 </fieldset>
 					<fieldset class="form-group">
-						<label>Patient Name</label> 
-						<input type="text"	class="form-control"  name="namePatient" >
+						<label>Med Name</label> 
+						<input type="text"	class="form-control"  name="nameMed" >
 					</fieldset>
 
-					<fieldset class="form-group">
-						<label>Patient Email</label> <input type="text"
-							value="<c:out value='${Patient.emailPatient}' />"
-							class="form-control" name="emailPatient">
-					</fieldset>
-
-					<fieldset class="form-group">
-						<label>Patient Address</label> <input type="text"
-							value="<c:out value='${Patient.countryPatient}' />"
-							class="form-control" name="countryPatient">
-					</fieldset>
 
 					<button type="submit" class="btn btn-success">Save</button>
 				</form>

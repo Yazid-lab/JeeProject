@@ -26,11 +26,11 @@
             <div class="row">
 
                 <div class="container">
-                    <h3 class="text-center">List of Patients</h3>
+                    <h3 class="text-center">List of Meds</h3>
                     <hr>
                     <div class="container text-left">
 
-                        <a href="<%=request.getContextPath()%>/add" class="btn btn-success">Add New Patient</a>
+                        <a href="<%=request.getContextPath()%>/addMed" class="btn btn-success">Add New Med</a>
                     </div>
                     <br>
                     <table class="table table-bordered">
@@ -38,29 +38,20 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Address</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="Patient" items="${listPatients}">
+                            <c:forEach var="Med" items="${listMeds}">
 
                                 <tr>
                                     <td>
-                                        <c:out value="${Patient.idPatient}" />
+                                        <c:out value="${Med.idMed}" />
                                     </td>
                                     <td>
-                                        <c:out value="${Patient.namePatient}" />
+                                        <c:out value="${Med.nameMed}" />
                                     </td>
-                                    <td>
-                                        <c:out value="${Patient.emailPatient}" />
-                                    </td>
-                                    <td>
-                                        <c:out value="${Patient.countryPatient}" />
-                                    </td>
-                                    <td><a href="update?idPatient=<c:out value='${Patient.idPatient}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?idPatient=<c:out value='${Patient.idPatient}' />">Delete</a></td>
-                                
+                                    <td><a href="updateMed?idMed=<c:out value='${Med.idMed}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="deleteMed?idMed=<c:out value='${Med.idMed}' />">Delete</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
