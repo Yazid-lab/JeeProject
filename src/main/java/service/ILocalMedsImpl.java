@@ -49,4 +49,9 @@ public class ILocalMedsImpl implements ILocalMeds {
 		return deletedCount>0;
 	}
 
+	@Override
+	public Meds findMed(int id) {
+		return em.find(Meds.class, id);
+	}
+
 }

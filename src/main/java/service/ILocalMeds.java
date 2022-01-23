@@ -13,5 +13,6 @@ public interface ILocalMeds {
 	public Meds selectMeds(int id);
 	public boolean updateMeds(Meds med);
 	public boolean deleteMeds(int id);
+	public Meds findMed(int id );
 
 }

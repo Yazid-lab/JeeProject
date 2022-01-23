@@ -48,6 +48,17 @@
 							value="<c:out value='${Patient.countryPatient}' />"
 							class="form-control" name="countryPatient">
 					</fieldset>
+					<fieldset>
+					<label>Meds</label>
+					
+					<select NAME="choice" class="form-control">
+			<c:forEach var="med" items="${listMeds}">
+				<option>
+					<c:out value="${med.idMed}-${med.nameMed}" />
+				</option>
+			</c:forEach>
+		</select>
+					</fieldset>
 					<button type="submit" class="btn btn-success">Save</button>
 				</form>
 			</div>
