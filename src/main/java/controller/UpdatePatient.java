@@ -43,20 +43,19 @@ public class UpdatePatient extends HttpServlet {
 		context.setAttribute("listMeds", listMeds);
 		Patient patientToEdit =new Patient();
 		int idPatient=Integer.parseInt(request.getParameter("idPatient"));
-		patientToEdit = findpatientbyid(listPatients, patientToEdit, idPatient);
+		patientToEdit = findpatientbyid(listPatients, idPatient);
 		context.setAttribute("listPatients", listPatients);
 		context.setAttribute("patientToEdit", patientToEdit);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("editForm.jsp");
     	dispatcher.forward(request, response);
 	}
 
-	private Patient findpatientbyid(List<Patient> listPatients, Patient patientToEdit, int idPatient) {
+	private Patient findpatientbyid(List<Patient> listPatients, int idPatient) {
 		for (Patient patient : listPatients) {
 			if (patient.getIdPatient()==idPatient)
-				patientToEdit=patient;
-			break;
+				return patient;
 		}
-		return patientToEdit;
+		return null;
 	}
 
 	/**
