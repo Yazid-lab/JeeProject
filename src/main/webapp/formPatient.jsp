@@ -21,7 +21,8 @@
 			<ul class="navbar-nav">
 				<li><a href="<%=request.getContextPath()%>/listPatients"
 					class="nav-link">Patients</a></li>
-				<li class="nav-link">Meds</li>
+				<li class="nav-link"><a href="<%=request.getContextPath()%>/listMeds"
+					class="nav-link">Meds</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -47,6 +48,17 @@
 						<label>Patient Address</label> <input type="text"
 							value="<c:out value='${Patient.countryPatient}' />"
 							class="form-control" name="countryPatient">
+					</fieldset>
+					<fieldset>
+					<label>Meds</label>
+					
+					<select NAME="choice" class="form-control">
+			<c:forEach var="med" items="${listMeds}">
+				<option>
+					<c:out value="${med.idMed}-${med.nameMed}" />
+				</option>
+			</c:forEach>
+		</select>
 					</fieldset>
 					<button type="submit" class="btn btn-success">Save</button>
 				</form>

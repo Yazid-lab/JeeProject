@@ -18,7 +18,8 @@
 			</div>
 
 			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/listPatients" class="nav-link">Patients</a></li>
+				<li><a href="<%=request.getContextPath()%>/listPatients"
+					class="nav-link">Patients</a></li>
 				<li class="nav-link">Meds</li>
 			</ul>
 		</nav>
@@ -29,26 +30,35 @@
 				<form action="update" method="post">
 					<h2>Edit Patient</h2>
 					<fieldset class="form-group">
-					<label>Patient Id</label>
-					 <input type="text" name="idPatient" value="${param.idPatient}" readonly/>
-					 </fieldset>
+						<label>Patient Id</label> <input type="text" name="idPatient"
+							value="${patientToEdit.idPatient}" readonly />
+					</fieldset>
 					<fieldset class="form-group">
-						<label>Patient Name</label> 
-						<input type="text"	class="form-control"  name="namePatient" >
+						<label>Patient Name</label> <input type="text"
+							class="form-control" name="namePatient"
+							value="${patientToEdit.namePatient }">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Patient Email</label> <input type="text"
-							value="<c:out value='${Patient.emailPatient}' />"
-							class="form-control" name="emailPatient">
+							value="${patientToEdit.emailPatient }" class="form-control"
+							name="emailPatient">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Patient Address</label> <input type="text"
-							value="<c:out value='${Patient.countryPatient}' />"
-							class="form-control" name="countryPatient">
+							value="${patientToEdit.countryPatient }" class="form-control"
+							name="countryPatient">
 					</fieldset>
-
+					<fieldset>
+						<label>Meds</label> <select NAME="choice" class="form-control">
+							<c:forEach var="med" items="${listMeds}">
+								<option >
+									<c:out value="${med.idMed}-${med.nameMed}" />
+								</option>
+							</c:forEach>
+						</select>
+					</fieldset>
 					<button type="submit" class="btn btn-success">Save</button>
 				</form>
 			</div>

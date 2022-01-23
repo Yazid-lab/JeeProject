@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import entities.Meds;
 import entities.Patient;
 
 
@@ -34,14 +35,14 @@ public class ILocalPatientImpl implements ILocalPatient {
 	}
 
 	@Override
-	public boolean updatePatient(Patient patient) {
-		Query query=em.createQuery("UPDATE Patient p SET p.namePatient = :newname , p.emailPatient = :newemail , p.countryPatient = :newcountry "
+	public boolean updatePatient(Patient patient,Meds med) {
+		Query query=em.createQuery("UPDATE Patient p SET p.namePatient = :newname , p.emailPatient = :newemail , p.countryPatient = :newcountry , p.medtaken= :med "
 	              + "WHERE p.idPatient = :enteredid");
 		query.setParameter("newname",patient.getNamePatient());
 		query.setParameter("newemail",patient.getEmailPatient());
 		query.setParameter("newcountry",patient.getCountryPatient());
 		query.setParameter("enteredid",patient.getIdPatient());	
-		
+		query.setParameter("med", med);
 		
 		return  query.executeUpdate()>0;
 	}

@@ -50,11 +50,16 @@ public class AddPatient extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Meds> listMeds=serviceMed.listMeds();
 		String name = request.getParameter("namePatient");
     	String email = request.getParameter("emailPatient");
     	String country = request.getParameter("countryPatient");
+    	String id = request.getParameter("choice").split("-")[0];
+    	Meds selectedMed =serviceMed.findMed(Integer.parseInt(id));
     	Patient newPatient = new Patient(name, email, country);
+    	newPatient.setMedtaken(selectedMed);
     	servicePatient.addPatient(newPatient);
+    	request.setAttribute("beanPatient", newPatient);
     	System.out.println("New patient added");
     	response.sendRedirect("listPatients");
 	}

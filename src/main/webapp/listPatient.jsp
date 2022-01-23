@@ -40,6 +40,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>Meds</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -59,6 +60,7 @@
                                     <td>
                                         <c:out value="${Patient.countryPatient}" />
                                     </td>
+                                    <td><c:out value="${Patient.medtaken.idMed}-${Patient.medtaken.nameMed}" /></td>
                                     <td><a href="update?idPatient=<c:out value='${Patient.idPatient}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?idPatient=<c:out value='${Patient.idPatient}' />">Delete</a></td>
                                 
                                 </tr>
